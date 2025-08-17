@@ -16,8 +16,13 @@ def create_database():
             cursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store")
             print("Database 'alx_book_store' created successfully!")
 
-    except Error as e:
-        print(f"Error: {e}")
+    except mysql.connector.Error as err:
+        if err.errno == mysql.connector.errorcode.ER_ACCESS_DENIED_ERROR:
+            print("Something is wrong with your user name or password")
+        elif err.errno == mysql.connector.errorcode.ER_BAD_DB_ERROR:
+            print("Database does not exist")
+        else:
+            print(f"Error: {err}")
 
     finally:
         if (connection.is_connected()):
