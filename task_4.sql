@@ -1,12 +1,18 @@
--- Print the full description of the Books table
-SELECT 
-    COLUMN_NAME AS `Column`,
-    COLUMN_TYPE AS `Type`,
-    IS_NULLABLE AS `Null`,
-    COLUMN_KEY AS `Key`,
-    COLUMN_DEFAULT AS `Default`,
-    EXTRA AS `Extra`
-FROM INFORMATION_SCHEMA.COLUMNS
-WHERE TABLE_SCHEMA = DATABASE()
-  AND TABLE_NAME = 'Books'
-ORDER BY ORDINAL_POSITION;
+-- task_4.sql
+
+-- Query the information_schema to get the full description of the 'books' table
+SELECT
+    COLUMN_NAME AS Field,
+    COLUMN_TYPE AS Type,
+    IS_NULLABLE AS Null,
+    COLUMN_KEY AS Key,
+    COLUMN_DEFAULT AS Default,
+    EXTRA AS Extra
+FROM
+    information_schema.COLUMNS
+WHERE
+    TABLE_SCHEMA = 'alx_book_store' AND
+    TABLE_NAME = 'books' AND
+    COLUMN_NAME IS NOT NULL
+ORDER BY
+    ORDINAL_POSITION;
