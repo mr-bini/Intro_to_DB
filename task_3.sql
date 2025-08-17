@@ -1,5 +1,3 @@
 -- task_3.sql
 
-SELECT table_name
-FROM information_schema.tables
-WHERE table_schema = DATABASE();
+SHOW TABLES;
