@@ -1,4 +1,6 @@
+-- task_2.sql
 
+-- Create the 'books' table
 CREATE TABLE IF NOT EXISTS books (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
@@ -9,6 +11,7 @@ CREATE TABLE IF NOT EXISTS books (
     price DECIMAL(10, 2)
 );
 
+-- Create the 'authors' table
 CREATE TABLE IF NOT EXISTS authors (
     id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
@@ -17,6 +20,7 @@ CREATE TABLE IF NOT EXISTS authors (
     nationality VARCHAR(50)
 );
 
+-- Create the 'customers' table
 CREATE TABLE IF NOT EXISTS customers (
     id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
@@ -30,6 +34,7 @@ CREATE TABLE IF NOT EXISTS customers (
     country VARCHAR(100)
 );
 
+-- Create the 'orders' table
 CREATE TABLE IF NOT EXISTS orders (
     id INT AUTO_INCREMENT PRIMARY KEY,
     customer_id INT,
@@ -39,6 +44,7 @@ CREATE TABLE IF NOT EXISTS orders (
     FOREIGN KEY (customer_id) REFERENCES customers(id)
 );
 
+-- Create the 'order_details' table
 CREATE TABLE IF NOT EXISTS order_details (
     id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT,
